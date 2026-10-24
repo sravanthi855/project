@@ -28,10 +28,40 @@ verification are recorded in
 [REQUIREMENTS.md](./REQUIREMENTS.md); these are local checks, not deployment
 verification.
 
-## Dated verification log
+## Dated work log and submission-readiness status
 
-- **2026-10-24** — Continued the TrustVault integration verification, added a
-  filename traversal regression test, completed the browser permission and
-  network-error checks, reviewed security boundaries, and initialized a local
-  Git repository. No remote repository was configured, so no hosted commit link
-  or push is available.
+Only **two evidence-backed dated entries** can be documented from the available
+project and session records. The assessment requires five, so that requirement
+is **not yet met**. Earlier prompts, outputs, and incremental commit links
+cannot be reconstructed reliably and are not invented here.
+
+### 2026-10-24 — Integration and security verification
+
+- **Request:** Finish browser checks for permission enforcement, revocation,
+  and Documents/Audit network failures, and review the security controls.
+- **Work and verification:** Added an upload filename-traversal regression
+  test and updated the verification documentation. The API suite passed six
+  tests. Manual browser checks observed HTTP 403 for a View-only download,
+  HTTP 200 and the expected PDF for Download permission, and loss of shared
+  access after revocation (the shared list became empty and a later view
+  returned HTTP 404). Aborted Documents and Audit requests displayed the
+  server-connection error without success toasts. An initial browser attempt
+  did not complete; these outcomes are from the later completed checks.
+- **Git evidence:** The repository has one initial local commit,
+  `b907faa36ff7ed646dfd54d3e034f18b15c754c5`. It is not an incremental commit
+  for this work. No GitHub remote or hosted commit link exists.
+
+### 2026-10-24 — Submission-readiness audit
+
+- **Request:** Check the prompt-entry requirement, documentation, Git state,
+  and remote without publishing.
+- **Work and verification:** Confirmed that only two evidence-backed dated
+  entries were available and that the five-entry requirement remained unmet.
+  Reran `python -m unittest -v test_app`; all six tests passed. Inspected the
+  documentation, branch, working tree, ignore rules, and remotes.
+- **Git evidence:** The latest commit remained
+  `b907faa36ff7ed646dfd54d3e034f18b15c754c5`; no remote or hosted commit link
+  was configured.
+
+Keep future work entries contemporaneous and include commit links only after
+the corresponding commits actually exist.

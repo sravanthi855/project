@@ -1,0 +1,27 @@
+# Local application data and uploads
+instance/
+uploads/
+*.db
+*.sqlite
+*.sqlite3
+
+# Python caches and virtual environments
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+env/
+ENV/
+
+# Local configuration and secrets; keep the documented template
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+
+# Generated logs and test/coverage output
+*.log
+.pytest_cache/
+.coverage
+htmlcov/

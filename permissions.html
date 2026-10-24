@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TrustVault | Permissions</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body data-page="permissions">
+    <div class="app-shell">
+      <aside class="sidebar">
+        <div class="brand-wrap sidebar-brand">
+          <div class="brand-mark" aria-label="TrustVault logo">T</div>
+          <div>
+            <p class="eyebrow">SECURE VAULT</p>
+            <h1>TrustVault</h1>
+          </div>
+        </div>
+
+        <nav class="sidebar-nav" aria-label="Main navigation">
+          <a class="nav-item" href="dashboard.html"><span>Dashboard</span></a>
+          <a class="nav-item" href="documents.html"><span>My Documents</span></a>
+          <a class="nav-item" href="shared.html"><span>Shared With Me</span></a>
+          <a class="nav-item active" href="permissions.html"><span>Permissions</span></a>
+          <a class="nav-item" href="audit.html"><span>Audit History</span></a>
+        </nav>
+
+        <div class="sidebar-footer">
+          <div class="user-pill">
+            <span class="user-avatar">AS</span>
+            <div>
+              <strong>Aarav Sharma</strong>
+              <small>Admin</small>
+            </div>
+          </div>
+          <a class="nav-item logout-link" href="index.html">Logout</a>
+        </div>
+      </aside>
+
+      <main class="main-panel">
+        <header class="topbar">
+          <button class="mobile-nav-toggle" aria-label="Open navigation">☰</button>
+          <div>
+            <p class="eyebrow text-accent">Permissions</p>
+            <h2>Manage access controls</h2>
+          </div>
+        </header>
+
+        <div class="page-content">
+          <section class="card permissions-form-card">
+            <div class="section-head">
+              <h3>Share a document</h3>
+            </div>
+
+            <form id="sharePermissionForm" novalidate>
+              <div class="form-grid two-col-grid">
+                <div class="field-group">
+                  <label for="permissionDocument">Document</label>
+                  <select id="permissionDocument" required>
+                    <option value="">Select a document</option>
+                  </select>
+                  <span class="error-message" data-error-for="permissionDocument"></span>
+                </div>
+
+                <div class="field-group">
+                  <label for="recipientEmail">Recipient email</label>
+                  <input id="recipientEmail" type="email" placeholder="recipient@company.com" required />
+                  <span class="error-message" data-error-for="recipientEmail"></span>
+                </div>
+              </div>
+
+              <div class="field-group">
+                <label for="permissionLevel">Permission</label>
+                <select id="permissionLevel" required>
+                  <option value="">Choose permission</option>
+                  <option value="View">View</option>
+                  <option value="Download">Download</option>
+                </select>
+                <span class="error-message" data-error-for="permissionLevel"></span>
+              </div>
+
+              <div class="form-actions">
+                <button type="submit" class="btn btn-primary">Share</button>
+              </div>
+            </form>
+          </section>
+
+          <section class="card table-card no-pad">
+            <div class="section-head with-padding">
+              <h3>Current sharing permissions</h3>
+            </div>
+
+            <div class="table-wrap">
+              <table>
+                <thead>
+                  <tr>
+                    <th>Document</th>
+                    <th>Recipient</th>
+                    <th>Permission</th>
+                    <th>Status</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody id="permissionsTable" aria-live="polite">
+                  <tr><td colspan="5">Loading sharing permissions…</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </section>
+        </div>
+      </main>
+    </div>
+
+    <div id="toastContainer" class="toast-container" aria-live="polite"></div>
+
+    <script src="js/api.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/documents.js"></script>
+  </body>
+</html>

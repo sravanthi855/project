@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TrustVault | Upload</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body data-page="upload">
+    <div class="app-shell">
+      <aside class="sidebar">
+        <div class="brand-wrap sidebar-brand">
+          <div class="brand-mark" aria-label="TrustVault logo">T</div>
+          <div>
+            <p class="eyebrow">SECURE VAULT</p>
+            <h1>TrustVault</h1>
+          </div>
+        </div>
+
+        <nav class="sidebar-nav" aria-label="Main navigation">
+          <a class="nav-item" href="dashboard.html"><span>Dashboard</span></a>
+          <a class="nav-item" href="documents.html"><span>My Documents</span></a>
+          <a class="nav-item" href="shared.html"><span>Shared With Me</span></a>
+          <a class="nav-item" href="permissions.html"><span>Permissions</span></a>
+          <a class="nav-item" href="audit.html"><span>Audit History</span></a>
+        </nav>
+
+        <div class="sidebar-footer">
+          <div class="user-pill">
+            <span class="user-avatar">AS</span>
+            <div>
+              <strong>Aarav Sharma</strong>
+              <small>Admin</small>
+            </div>
+          </div>
+          <a class="nav-item logout-link" href="index.html">Logout</a>
+        </div>
+      </aside>
+
+      <main class="main-panel">
+        <header class="topbar">
+          <button class="mobile-nav-toggle" aria-label="Open navigation">☰</button>
+          <div>
+            <p class="eyebrow text-accent">Upload</p>
+            <h2>Add a document to your vault</h2>
+          </div>
+          <a href="documents.html" class="btn btn-secondary">Back to Documents</a>
+        </header>
+
+        <div class="page-content narrow-layout">
+          <section class="card upload-card">
+            <div id="dropArea" class="drop-zone" tabindex="0" aria-label="Upload file area">
+              <div class="drop-icon">📄</div>
+              <h3>Drag and drop your file here</h3>
+              <p>or</p>
+              <label class="btn btn-secondary file-picker-label" for="fileInput">Choose file</label>
+              <input id="fileInput" type="file" accept=".pdf,.docx,.xlsx,.png,.jpg,.jpeg" hidden />
+            </div>
+
+            <div class="upload-meta">
+              <div>
+                <strong>Selected file</strong>
+                <p id="selectedFileName">No file chosen</p>
+              </div>
+              <div>
+                <strong>File size</strong>
+                <p id="selectedFileSize">-</p>
+              </div>
+            </div>
+
+            <div class="upload-rules">
+              <p><strong>Allowed types:</strong> PDF, DOCX, XLSX, PNG, JPG</p>
+              <p><strong>Maximum file size:</strong> 10 MB</p>
+            </div>
+
+            <div id="uploadMessage" class="form-status" aria-live="polite"></div>
+
+            <div class="form-actions">
+              <button id="uploadSubmit" type="button" class="btn btn-primary">Upload</button>
+              <button type="button" class="btn btn-secondary" onclick="window.location.href='documents.html'">Cancel</button>
+            </div>
+          </section>
+        </div>
+      </main>
+    </div>
+
+    <div id="toastContainer" class="toast-container" aria-live="polite"></div>
+
+    <script src="js/api.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/upload.js"></script>
+  </body>
+</html>
